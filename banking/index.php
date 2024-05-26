@@ -7,14 +7,18 @@
     <title>Mini Banking System</title>
 </head>
 <body>
-<div class="container">
+     <div class="container">
+    <h2>Transfer Money</h2>
     <h2>Mini Banking System</h2>
+    <a href="login.php" class="btn btn-secondary mb-3">Logout</a>
+    <!-- Rest of your code -->
+</div>
+<div class="container">
     <ul class="list-group mb-4">
-        <li class="list-group-item"><a href="create_account.php">Create Account</a></li>
         <li class="list-group-item"><a href="deposit.php">Deposit Money</a></li>
         <li class="list-group-item"><a href="withdraw.php">Withdraw Money</a></li>
         <li class="list-group-item"><a href="transfer.php">Transfer Money</a></li>
-        <li class="list-group-item"><a href="account_table.php">View Account Details</a></li>
+        <li class="list-group-item"><a href="account_details.php">View Account Details</a></li>
     </ul>
 </div>
 

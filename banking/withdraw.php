@@ -7,6 +7,11 @@
     <title>Withdraw Money</title>
 </head>
 <body>
+    <div class="container">
+    <h2>Transfer Money</h2>
+    <a href="index.php" class="btn btn-secondary mb-3">Go back to home</a>
+    <!-- Rest of your code -->
+</div>
 <div class="container">
     <h2>Withdraw Money</h2>
     <form action="withdraw.php" method="post">
@@ -43,3 +48,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+;

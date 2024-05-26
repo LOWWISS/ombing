@@ -7,6 +7,11 @@
     <title>Deposit Money</title>
 </head>
 <body>
+    <div class="container">
+    <h2>Transfer Money</h2>
+    <a href="index.php" class="btn btn-secondary mb-3">Go Back</a>
+    <!-- Rest of your code -->
+</div>
 <div class="container">
     <h2>Deposit Money</h2>
     <form action="deposit.php" method="post">

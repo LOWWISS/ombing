@@ -7,6 +7,11 @@
     <title>Transfer Money</title>
 </head>
 <body>
+    <div class="container">
+    <h2>Transfer Money</h2>
+    <a href="index.php" class="btn btn-secondary mb-3">Go back to home</a>
+     <!-- Rest of your code -->
+</div>
 <div class="container">
     <h2>Transfer Money</h2>
     <?php
