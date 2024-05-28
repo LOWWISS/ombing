@@ -9,8 +9,6 @@
 <body>
     <div class="container">
         <h2>Withdraw Money</h2>
-        <a href="index.php" class="btn btn-secondary mb-3">Go Back</a>
-
         <form action="withdraw.php" method="post">
             <div class="form-group">
                 <label for="accountNumber">Account Number:</label>
@@ -32,14 +30,13 @@
             $accountNumber = $_POST['accountNumber'];
             $amount = $_POST['amount'];
 
-            if ($account->accountExists($accountNumber)) {
-                if ($account->withdraw($accountNumber, $amount)) {
-                    echo "<div class='alert alert-success'>Money withdrawn successfully!</div>";
-                } else {
-                    echo "<div class='alert alert-danger'>Error withdrawing money!</div>";
-                }
-            } else {
+            $result = $account->withdraw($accountNumber, $amount);
+            if ($result === true) {
+                echo "<div class='alert alert-success'>Money withdrawn successfully!</div>";
+            } elseif ($result === "Account number does not exist") {
                 echo "<div class='alert alert-danger'>Account number does not exist!</div>";
+            } else {
+                echo "<div class='alert alert-danger'>Error withdrawing money!</div>";
             }
         }
         ?>
