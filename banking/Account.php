@@ -7,10 +7,23 @@ class Account {
         $this->conn = $conn;
     }
 
-    public function createAccount($accountNumber, $ownerName, $password) {
+    public function createAccount($accountNumber, $ownerName, $password, $role) {
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
         $stmt = $this->conn->prepare("INSERT INTO $this->table (account_number, owner_name, password) VALUES (?, ?, ?)");
         $stmt->bind_param("sss", $accountNumber, $ownerName, $hashed_password);
+        $success = $stmt->execute();
+
+        if ($success) {
+            $accountId = $this->conn->insert_id;
+            $this->assignRole($accountId, $role);
+        }
+
+        return $success;
+    }
+
+    public function assignRole($accountId, $role) {
+        $stmt = $this->conn->prepare("INSERT INTO user_roles (account_id, role) VALUES (?, ?)");
+        $stmt->bind_param("is", $accountId, $role);
         return $stmt->execute();
     }
 

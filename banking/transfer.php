@@ -13,7 +13,6 @@
      <!-- Rest of your code -->
 </div>
 <div class="container">
-    <h2>Transfer Money</h2>
     <?php
     include 'db.php';
 

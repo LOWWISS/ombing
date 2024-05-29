@@ -8,7 +8,9 @@
 </head>
 <body>
     <div class="container">
-        <h2>Withdraw Money</h2>
+    <h2>Withdraw Money</h2>
+    <a href="index.php" class="btn btn-secondary mb-3">Go back to home</a>
+    <div class="container">
         <form action="withdraw.php" method="post">
             <div class="form-group">
                 <label for="accountNumber">Account Number:</label>
@@ -47,3 +49,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+    
