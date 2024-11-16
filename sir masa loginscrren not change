@@ -1,0 +1,115 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:flutter/material.dart';
+import 'package:ombinglj_b4/dashboard.dart';
+
+class LoginScreen extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: LoginScreenHome(),
+    );
+  }
+}
+
+class LoginScreenHome extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Login Screen'),
+        backgroundColor: Colors.grey[600],
+      ),
+      body: Column(
+        children: [
+          SizedBox(height: 20,),
+          Text('Welcome User',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
+          Text('Please Login to continue',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
+          SizedBox(height: 20,),
+          SizedBox(
+            height: MediaQuery.of(context).size.height*0.65,
+            width: MediaQuery.of(context).size.width*0.3,
+            child: Card(
+              color: Colors.grey[400],
+              elevation: 20,
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Column(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                       color: Colors.blue,
+                       width: 2
+                      ),
+                      ),
+                      child: CircleAvatar(
+                        radius: 60,
+                        backgroundImage: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-5kBsmOrfXXTgg_plg4NSuY8UYcxSx4FVEQ&s'),
+                      ),
+                    ),
+                    SizedBox(height: 20,),
+                    TextField(
+                      decoration: InputDecoration(
+                        labelText: 'Username',
+                        prefixIcon: Icon(Icons.person),
+                        border: OutlineInputBorder()
+                      ),
+                    ),
+                    SizedBox(height: 20,),
+                    TextField(
+                      obscureText: true,
+                      decoration: InputDecoration(
+                          labelText: 'Password',
+                          prefixIcon: Icon(Icons.lock),
+                          border: OutlineInputBorder()
+                      ),
+                    ),
+                    SizedBox(height: 20,),
+                    SizedBox(
+                      height: 50,
+                      width: double.infinity,
+                      child: ElevatedButton(onPressed: (){
+                        Navigator.of(context).push(MaterialPageRoute(builder:(BuildContext context)=>Dashboard()));
+                      }, child: Text('Login'),style: ElevatedButton.styleFrom(backgroundColor: Colors.grey[600],foregroundColor: Colors.white),),
+                    ),
+                    TextButton(onPressed: (){
+                      AwesomeDialog(
+                        context:context,
+                        dialogType: DialogType.success,
+                        animType: AnimType.bottomSlide,
+                        title: 'Success',
+                        desc: 'You Mama So Black She Cant Even Be Seen At Night',
+                        btnOkOnPress: (){},
+                        btnCancelOnPress: (){},
+                      ).show();
+                    }, child: Text('Forgot Password')),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('Dont have an Account?'),
+              TextButton(onPressed: (){
+                AwesomeDialog(
+                    context:context,
+                    dialogType: DialogType.success,
+                    animType: AnimType.bottomSlide,
+                    title: 'Success',
+                    desc: 'You Mama So Fat She Cant Even Stand Up',
+                    btnOkOnPress: (){},
+                    btnCancelOnPress: (){},
+                ).show();
+              }, child: Text('Sign up')),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+}
