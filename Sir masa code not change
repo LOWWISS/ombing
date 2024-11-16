@@ -1,0 +1,106 @@
+import 'package:flutter/material.dart';
+import 'package:ombinglj_b4/loginscreen.dart';
+
+class Dashboard extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: DashboardHome(),
+    );
+  }
+}
+
+class DashboardHome extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height*0.30,
+              child: DrawerHeader(
+                child: Column(
+                  children: [
+                    CircleAvatar(
+                      radius: 50,
+                      backgroundImage: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-5kBsmOrfXXTgg_plg4NSuY8UYcxSx4FVEQ&s'),
+                    ),
+                    Text('Louis Joseph Ombing'),
+                    Text('JosephxdGaming@gmail.com'),
+                  ],
+                ),
+              ),
+            ),
+            ListTile(
+              title: Text('Logout'),
+              tileColor: Colors.grey,
+              leading: Icon(Icons.power_settings_new),
+              onTap: (){
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (BuildContext context)
+                    =>LoginScreen()));
+              },
+            )
+          ],
+        ),
+      ),
+      appBar: AppBar(
+        toolbarHeight: 80.0,
+        backgroundColor: Colors.black54,
+        flexibleSpace: Center(
+          child: Text(
+            'Profile😏',
+            style: TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
+          ),
+        ),
+      ),
+      body: Center(
+        child: Card(
+          color: Colors.grey,
+          child: Padding(
+            padding: const EdgeInsets.all(30.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                CircleAvatar(
+                  radius: 50,
+                  backgroundImage: NetworkImage(
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-5kBsmOrfXXTgg_plg4NSuY8UYcxSx4FVEQ&s',
+                  ),
+                ),
+                SizedBox(height: 10),
+                Text('Louis Joseph Tesaluna Ombing'),
+                Text('Single and Lonely'),
+                Text('Bachelor of Science in Information Technology') ,
+                SizedBox(height: 20),
+                Wrap(
+                  spacing: 8.0,
+                  alignment: WrapAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        print('Added');
+                      },
+                      child: Text('Add Friend'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        print('Hello');
+                      },
+                      child: Text('Message'),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
